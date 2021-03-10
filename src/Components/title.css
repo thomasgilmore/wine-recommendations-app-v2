@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+
+.WineTitle {
+    background-color: #722f37;
+    color: white;
+    font-family: 'Tangerine', cursive;
+    /* font-family: 'Italianno', cursive; */
+    font-size: 50px;
+    margin: 0;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
