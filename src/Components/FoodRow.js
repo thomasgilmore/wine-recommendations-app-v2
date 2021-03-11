@@ -1,16 +1,11 @@
 import React from 'react';
+import './info.css';
 
 class FoodRow extends React.Component {
     render() {
-        return <table key={this.props.food}>
-        <tbody>
-          <tr>
-            <td>
+        return <p className="info" key={this.props.food}>
               {this.props.info}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </p>
     }
 }
 
