@@ -2,9 +2,10 @@
 import React from 'react';
 import './App.css';
 import Title from './Components/Title';
+import Description from './Components/Description';
 import { Search } from './Components/Search';
 import { SearchFood } from './Components/SearchFood';
-import { Button } from './Components/Button';
+// import { Button } from './Components/Button';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ export default class App extends React.Component {
   return (
     <div>
       <Title />
+      <Description />
       {this.state.check ? <Search /> : <SearchFood />}
     </div>
   );
