@@ -60,10 +60,13 @@ export class SearchFood extends Component {
           <input style={{
             fontSize: 24,
             display: 'block',
-            width: '99%',
+            width: '98%',
+            margin: 5,
             paddingTop: 8,
             paddingBottom: 8,
-            paddingLeft: 16
+            paddingLeft: 16,
+            paddingRight: -16,
+            borderRadius: 10
           }} onChange={this.searchChangeHandler.bind(this)} placeholder="Enter search term" />
     
           {this.state.rows}
