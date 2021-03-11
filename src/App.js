@@ -6,6 +6,7 @@ import Description from './Components/Description';
 import { Search } from './Components/Search';
 import { SearchFood } from './Components/SearchFood';
 // import { Button } from './Components/Button';
+import Footer from './Components/Footer';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ export default class App extends React.Component {
       <Title />
       <Description />
       {this.state.check ? <Search /> : <SearchFood />}
+      <Footer />
     </div>
   );
 }
