@@ -3,9 +3,7 @@ import './info.css';
 
 class FoodRow extends React.Component {
     render() {
-        return <p className="info" key={this.props.food}>
-              {this.props.info}
-            </p>
+        return <p className="info" key={this.props.food}>&emsp;{this.props.info}</p>
     }
 }
 
