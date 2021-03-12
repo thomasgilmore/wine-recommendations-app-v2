@@ -3,9 +3,7 @@ import './info.css';
 
 class WineRow extends React.Component {
     render() {
-        return <p key={this.props.wine} className="info">
-              {this.props.info}
-            </p>
+        return <p key={this.props.wine} className="info">&emsp;{this.props.info}</p>
     }
 }
 
