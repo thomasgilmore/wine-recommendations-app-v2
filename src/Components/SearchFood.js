@@ -58,6 +58,8 @@ export class SearchFood extends Component {
         <div>
     
           <input style={{
+            backgroundColor: '#FFFFFF',
+            borderColor: '#FFFFFF',
             fontSize: 24,
             display: 'block',
             width: '94%',
