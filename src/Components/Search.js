@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FoodRow from './FoodRow';
 import $ from 'jquery';
+import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 require('dotenv').config()
 
@@ -57,6 +58,8 @@ export class Search extends Component {
         <div>
     
           <input style={{
+            backgroundColor: '#FFFFFF',
+            borderColor: '#FFFFFF',
             fontSize: 24,
             display: 'block',
             width: '94%',
