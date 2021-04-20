@@ -5,7 +5,3 @@
 <p>For the Wine Recommendations I'm using two API endpoints from <a href="https://spoonacular.com/food-api">Spoonacular API</a>. I'm using the get dish pairing for wine were you find a dish that goes well with a given wine and I'm also using get wine pairing that finds a wine that goes well with food.</p>
 
 <p>I used React to create the frontend for this project. I used two AJAX calls for the two different API endpoints to return the data to the user and using Netlify to host the app.</p>
-
-## TEST
-
-- This is a test
