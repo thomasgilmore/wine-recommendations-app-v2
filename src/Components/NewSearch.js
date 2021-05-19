@@ -9,22 +9,31 @@ import "./newsearch.css";
 require('dotenv').config()
 
 function NewSearch() {
-  const [weather, setWeather] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
   const [form, setForm] = useState({
-    zip: ""
+    foodOrWine: ""
   });
 
-  async function weatherData(e) {
+  async function recommendationsData(e) {
     e.preventDefault();
-    if (form.zip === "") {
+    if (form.foodOrWine === "") {
       alert("Add values");
     } else {
       const data = await fetch(
-        `https://api.spoonacular.com/food/wine/dishes?apiKey=${process.env.REACT_APP_API_KEY}&wine=${form.zip}`
+        `https://api.spoonacular.com/food/wine/dishes?apiKey=${process.env.REACT_APP_API_KEY}&wine=${form.foodOrWine}`
       )
       .then((res) => res.json())
-      .then((wine) => {
-        console.log(wine);
+      .then((foodOrWine) => {
+        console.log(foodOrWine);
+        const recommendationsText = foodOrWine.text;
+
+        let recommendationsTexts = []
+
+        const foodOrWineRecommendationsText = <WineRow key={1} text={recommendationsText} />
+        recommendationsTexts.push(foodOrWineRecommendationsText);
+
+        setRecommendations({ data: recommendationsTexts })
+
         // const latitude = location.features[0].center[1];
         // const longitude = location.features[0].center[0];
         // const data2 = fetch(
@@ -50,7 +59,7 @@ function NewSearch() {
 
         //   });
 
-        //   setWeather({ data: weatherCards })
+        //   setRecommendations({ data: weatherCards })
         // })
         // console.log(data2);
       })
@@ -62,8 +71,8 @@ function NewSearch() {
     let name = e.target.name;
     let value = e.target.value;
 
-    if (name === "zip") {
-      setForm({ ...form, zip: value });
+    if (name === "foodOrWine") {
+      setForm({ ...form, foodOrWine: value });
     }
   };
   return (
@@ -73,20 +82,20 @@ function NewSearch() {
         <input
           type="text"
           placeholder="Wine or Food"
-          name="zip"
+          name="foodOrWine"
           onChange={(e) => handleChange(e)}
         />
         &nbsp; &nbsp; &nbsp;&nbsp;
-        <button className="getweather" onClick={(e) => weatherData(e)}>
+        <button className="getweather" onClick={(e) => recommendationsData(e)}>
           Search
         </button>
       </form>
     </div>
      
       <div className="weatherCardContainer">
-        {weather.data !== undefined ? (
+        {recommendations.data !== undefined ? (
           <div>
-            // {weather.data}
+            {recommendations.data}
           </div>
         ) : null}
       </div>
