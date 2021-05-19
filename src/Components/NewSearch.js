@@ -69,12 +69,10 @@ function NewSearch() {
   return (
     <div>
     <div className="weather">
-      <span className="title">Weather</span>
-      <br />
       <form>
         <input
           type="text"
-          placeholder="ZIP"
+          placeholder="Wine or Food"
           name="zip"
           onChange={(e) => handleChange(e)}
         />
