@@ -3,7 +3,7 @@ import './info.css';
 
 class WineRow extends React.Component {
     render() {
-        return <p key={this.props.wine} className="info">&emsp;{this.props.info}</p>
+        return <p className="info">&emsp;{this.props.text}</p>
     }
 }
 
