@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FoodRow from './FoodRow';
 import WineRow from './WineRow';
-import "./weather.css";
+import "./newsearch.css";
 // import { WeatherIcon } from './WeatherIcon';
 // import moment from 'moment';
 // import WeatherCard from './WeatherCard';
