@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FoodRow from './FoodRow';
 import WineRow from './WineRow';
+import ImageRow from './ImageRow';
 import "./newsearch.css";
 // import { WeatherIcon } from './WeatherIcon';
 // import moment from 'moment';
@@ -42,6 +43,7 @@ function NewSearch() {
           .then((res2) => res2.json())
           .then((foodInfo) => {
             console.log(foodInfo);
+            
           })
         })
 
