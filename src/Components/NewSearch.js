@@ -26,6 +26,7 @@ function NewSearch() {
       .then((foodOrWine) => {
         console.log(foodOrWine);
         const recommendationsText = foodOrWine.text;
+        const pairings = foodOrWine.pairings;
 
         let recommendationsTexts = []
 
@@ -33,6 +34,18 @@ function NewSearch() {
         recommendationsTexts.push(foodOrWineRecommendationsText);
 
         setRecommendations({ data: recommendationsTexts })
+
+        pairings.forEach((pairing) => {
+          const data2 = fetch(
+            `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
+          )
+          .then((res2) => res2.json())
+          .then((foodInfo) => {
+            console.log(foodInfo);
+          })
+        })
+
+        
 
         // const latitude = location.features[0].center[1];
         // const longitude = location.features[0].center[0];
