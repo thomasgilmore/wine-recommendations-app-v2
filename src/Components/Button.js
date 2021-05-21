@@ -9,6 +9,6 @@ export const Button = ({
     buttonSize
 }) => {
     return (
-        <button onClick={onClick} type={type}>{children}</button>
+        <button onClick={onClick} type={type} className={buttonStyle}>{children}</button>
     );
 };
