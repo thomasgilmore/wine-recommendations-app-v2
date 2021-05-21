@@ -38,12 +38,23 @@ function NewSearch() {
 
         pairings.forEach((pairing) => {
           const data2 = fetch(
-            `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
+            `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${encodeURIComponent(pairing)}&image_type=photo&pretty=true`
+            // `https://api.spoonacular.com/food/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
+            // `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${pairing}`
+            // `https://api.spoonacular.com/food/menuItems/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
+            // `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
           )
           .then((res2) => res2.json())
           .then((foodInfo) => {
             console.log(foodInfo);
-            
+            if (foodInfo.length > 0) {
+              // console.log(foodInfo);
+              let itemsFoodOrWine = foodInfo;
+              itemsFoodOrWine.forEach((itemFoodOrWine) => {
+                let picture = itemFoodOrWine.image;
+                console.log(picture);
+              })
+            }
           })
         })
 
