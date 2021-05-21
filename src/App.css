@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.buttonDiv {
+  margin: 30px auto 25px auto;
+  width: max-content;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
