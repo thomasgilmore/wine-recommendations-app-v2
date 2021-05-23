@@ -46,14 +46,15 @@ function WineSearch() {
           )
           .then((res2) => res2.json())
           .then((foodInfo) => {
-            console.log(foodInfo);
-            if (foodInfo.length > 0) {
-              // console.log(foodInfo);
-              let itemsFoodOrWine = foodInfo;
-              itemsFoodOrWine.forEach((itemFoodOrWine) => {
-                let picture = itemFoodOrWine.image;
+            // console.log(foodInfo.hits);
+            if (foodInfo.hits.length > 0) {
+              console.log(foodInfo.hits);
+              let itemsFoodOrWine = foodInfo.hits;
+              for (var i = 0; i < 1; i++) {
+                let picture = itemsFoodOrWine[i].pageURL;
                 console.log(picture);
-              })
+              }
+              
             }
           })
         })
