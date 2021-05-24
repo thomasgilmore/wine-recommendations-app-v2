@@ -10,6 +10,7 @@ import "./newsearch.css";
 require('dotenv').config()
 
 function FoodSearch() {
+  const [recommendationsImages, setRecommendationsImages] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [form, setForm] = useState({
     foodOrWine: ""
@@ -29,7 +30,8 @@ function FoodSearch() {
         const recommendationsText = foodOrWine.text;
         const pairings = foodOrWine.pairings;
 
-        let recommendationsTexts = []
+        let recommendationsTexts = [];
+        let imagesRows = [];
 
         const foodOrWineRecommendationsText = <WineRow key={1} text={recommendationsText} />
         recommendationsTexts.push(foodOrWineRecommendationsText);
@@ -37,8 +39,11 @@ function FoodSearch() {
         setRecommendations({ data: recommendationsTexts })
 
         pairings.forEach((pairing) => {
+          console.log(pairing)
           const data2 = fetch(
-            `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${encodeURIComponent(pairing)}&image_type=photo&pretty=true`
+            `https://api.unsplash.com/search/photos?query=${encodeURIComponent(pairing)}&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+            // `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${encodeURIComponent(pairing)}&image_type=photo&pretty=true`
+            
             // `https://api.spoonacular.com/food/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
             // `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${pairing}`
             // `https://api.spoonacular.com/food/menuItems/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
@@ -46,14 +51,19 @@ function FoodSearch() {
           )
           .then((res2) => res2.json())
           .then((foodInfo) => {
-            console.log(foodInfo);
-            if (foodInfo.length > 0) {
-              // console.log(foodInfo);
-              let itemsFoodOrWine = foodInfo;
-              itemsFoodOrWine.forEach((itemFoodOrWine) => {
-                let picture = itemFoodOrWine.image;
+            // console.log(foodInfo.results);
+            if (foodInfo.results.length > 0) {
+              console.log(foodInfo.results);
+              let itemsFoodOrWine = foodInfo.results;
+
+              for (var i = 0; i < 1; i++) {
+                let id = itemsFoodOrWine[i].id;
+                let picture = itemsFoodOrWine[i].urls.regular;
                 console.log(picture);
-              })
+                const images = <ImageRow key={id} image={picture} />
+                imagesRows.push(images);
+              }
+              setRecommendationsImages({ images: imagesRows })
             }
           })
         })
@@ -125,6 +135,11 @@ function FoodSearch() {
           </div>
         ) : null}
       </div>
+      {recommendationsImages !== undefined ? (
+        <div className="recommendationsImages">
+          {recommendationsImages.images}
+        </div>
+      ) : null }
     </div>
   );
 }
