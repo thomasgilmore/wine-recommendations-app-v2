@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import FoodRow from './FoodRow';
+// import FoodRow from './FoodRow';
 import WineRow from './WineRow';
 import ImageRow from './ImageRow';
 import "./newsearch.css";
+import './winesearch.css';
 // import { WeatherIcon } from './WeatherIcon';
 // import moment from 'moment';
 // import WeatherCard from './WeatherCard';
@@ -10,6 +11,7 @@ import "./newsearch.css";
 require('dotenv').config()
 
 function WineSearch() {
+  const [recommendationsImages, setRecommendationsImages] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [form, setForm] = useState({
     foodOrWine: ""
@@ -29,7 +31,8 @@ function WineSearch() {
         const recommendationsText = foodOrWine.text;
         const pairings = foodOrWine.pairings;
 
-        let recommendationsTexts = []
+        let recommendationsTexts = [];
+        let imagesRows = [];
 
         const foodOrWineRecommendationsText = <WineRow key={1} text={recommendationsText} />
         recommendationsTexts.push(foodOrWineRecommendationsText);
@@ -50,11 +53,16 @@ function WineSearch() {
             if (foodInfo.hits.length > 0) {
               console.log(foodInfo.hits);
               let itemsFoodOrWine = foodInfo.hits;
+
               for (var i = 0; i < 1; i++) {
-                let picture = itemsFoodOrWine[i].pageURL;
+                let id = itemsFoodOrWine[i].id;
+                let picture = itemsFoodOrWine[i].webformatURL;
                 console.log(picture);
+                const images = <ImageRow key={id} image={picture} />
+                imagesRows.push(images);
               }
-              
+              setRecommendationsImages({ images: imagesRows })
+              console.log(imagesRows);
             }
           })
         })
@@ -126,6 +134,11 @@ function WineSearch() {
           </div>
         ) : null}
       </div>
+      {recommendationsImages !== undefined ? (
+        <div className="recommendationsImages">
+          {recommendationsImages.images}
+        </div>
+      ) : null }
     </div>
   );
 }
