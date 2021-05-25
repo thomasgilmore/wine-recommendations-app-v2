@@ -33,6 +33,7 @@ function WineSearch() {
 
         let recommendationsTexts = [];
         let imagesRows = [];
+        let ids = [];
 
         const foodOrWineRecommendationsText = <WineRow key={1} text={recommendationsText} />
         recommendationsTexts.push(foodOrWineRecommendationsText);
@@ -41,8 +42,8 @@ function WineSearch() {
 
         pairings.forEach((pairing) => {
           const data2 = fetch(
-            `https://api.unsplash.com/search/photos?query=${encodeURIComponent(pairing)}&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
-            // `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${encodeURIComponent(pairing)}&image_type=photo&pretty=true`
+            // `https://api.unsplash.com/search/photos?query=${encodeURIComponent(pairing)}&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+            `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${encodeURIComponent(pairing)}&image_type=photo&pretty=true&category=food&safesearch=true`
             
             // `https://api.spoonacular.com/food/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${pairing}`
             // `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${pairing}`
@@ -51,21 +52,40 @@ function WineSearch() {
           )
           .then((res2) => res2.json())
           .then((foodInfo) => {
-            // console.log(foodInfo.results);
-            if (foodInfo.results.length > 0) {
-              console.log(foodInfo.results);
-              let itemsFoodOrWine = foodInfo.results;
-
+            // console.log(foodInfo);
+            if (foodInfo.hits.length > 0) {
+              // console.log(foodInfo);
+              let itemsFoodOrWine = foodInfo.hits;
+              console.log(itemsFoodOrWine);
               for (var i = 0; i < 1; i++) {
                 let id = itemsFoodOrWine[i].id;
-                let picture = itemsFoodOrWine[i].urls.regular;
-                console.log(picture);
-                const images = <ImageRow key={id} image={picture} />
-                imagesRows.push(images);
+                if (!ids.includes(id)) {
+                  let picture = itemsFoodOrWine[i].webformatURL;
+                  console.log(picture);
+                  const images = <ImageRow key={id} image={picture} />
+                  imagesRows.push(images);
+                  ids.push(id);
+                } 
               }
               setRecommendationsImages({ images: imagesRows })
               console.log(imagesRows);
             }
+
+            // console.log(foodInfo.results);
+          //   if (foodInfo.results.length > 0) {
+          //     console.log(foodInfo.results);
+          //     let itemsFoodOrWine = foodInfo.results;
+
+          //     for (var i = 0; i < 1; i++) {
+          //       let id = itemsFoodOrWine[i].id;
+          //       let picture = itemsFoodOrWine[i].urls.regular;
+          //       console.log(picture);
+          //       const images = <ImageRow key={id} image={picture} />
+          //       imagesRows.push(images);
+          //     }
+          //     setRecommendationsImages({ images: imagesRows })
+          //     console.log(imagesRows);
+          //   }
           })
         })
 
