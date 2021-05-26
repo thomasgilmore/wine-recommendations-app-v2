@@ -2,7 +2,6 @@ import React, { useState } from "react";
 // import FoodRow from './FoodRow';
 import WineRow from './WineRow';
 import ImageRow from './ImageRow';
-import "./newsearch.css";
 import './winesearch.css';
 // import { WeatherIcon } from './WeatherIcon';
 // import moment from 'moment';
@@ -134,22 +133,22 @@ function WineSearch() {
   };
   return (
     <div>
-    <div className="weather">
+    <div className="recommendation">
       <form>
         <input
           type="text"
-          placeholder="Wine"
+          placeholder="Wine or Food"
           name="foodOrWine"
           onChange={(e) => handleChange(e)}
         />
         &nbsp; &nbsp; &nbsp;&nbsp;
-        <button className="getweather" onClick={(e) => recommendationsData(e)}>
+        <button className="getrecommendation" onClick={(e) => recommendationsData(e)}>
           Search
         </button>
       </form>
     </div>
      
-      <div className="weatherCardContainer">
+      <div className="recommendationContainer">
         {recommendations.data !== undefined ? (
           <div>
             {recommendations.data}
