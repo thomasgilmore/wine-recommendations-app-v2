@@ -3,6 +3,7 @@ import './App.css';
 import Title from './Components/Title';
 import MainPhoto from './Components/MainPhoto';
 import { Button } from './Components/Button';
+import Description from './Components/Description';
 import FoodDescription from './Components/FoodDescription';
 import WineDescription from './Components/WineDescription';
 import FoodSearch from './Components/FoodSearch';
@@ -36,14 +37,8 @@ export default class App extends React.Component {
     <div>
       <Title />
       <MainPhoto />
-      <div className="buttonDiv">
-        {this.state.wineSearch ? <div><Button buttonStyle="wineSearch" onClick={this.handleChangeWinePairing.bind(this)}>Wine Search</Button>
-          <Button buttonStyle="foodSearch" onClick={this.handleChangeFoodPairing.bind(this)}>Food Search</Button></div>
-        : <div><Button buttonStyle="wineSearchFoodClicked" onClick={this.handleChangeWinePairing.bind(this)}>Wine Search</Button>
-        <Button buttonStyle="foodSearchFoodClicked" onClick={this.handleChangeFoodPairing.bind(this)}>Food Search</Button></div> }
-      </div>
-      {this.state.wineSearch ? <WineDescription /> : <FoodDescription />}
-      {this.state.wineSearch ? <WineSearch /> : <FoodSearch />}
+      <Description />
+      <WineSearch />
       <Footer />
     </div>
   );
