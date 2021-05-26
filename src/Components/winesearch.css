@@ -65,9 +65,7 @@
         margin: 20px auto 0 auto;
         width: 50%;
     }
-}
 
-@media (min-width: 200px) {
     .recommendation form input {
         padding: 11px;
         border: 2px solid #722f37;
@@ -93,7 +91,7 @@
         border: 2px solid #722f37;
         border-radius: 10px;
         margin-right: 2px;
-        width: 350px;
+        width: 500px;
     }
 }
 
