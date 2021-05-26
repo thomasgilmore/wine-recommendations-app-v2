@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import WineRow from './WineRow';
 import ImageRow from './ImageRow';
 import './winesearch.css';
+import Footer from './Footer';
+import FooterWithData from './FooterWithData';
 // import { WeatherIcon } from './WeatherIcon';
 // import moment from 'moment';
 // import WeatherCard from './WeatherCard';
@@ -160,6 +162,8 @@ function WineSearch() {
           {recommendationsImages.images}
         </div>
       ) : null }
+      {recommendations.data !== undefined ? (
+        <FooterWithData /> ) : ( <Footer /> )}
     </div>
   );
 }
