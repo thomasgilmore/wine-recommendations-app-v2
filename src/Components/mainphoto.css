@@ -1,0 +1,71 @@
+.imageContainer {
+    height: 300px;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.mainPhoto {
+    width: 100vw;
+    object-fit: cover;
+    object-position: 100% 0px;
+}
+
+@media (min-width: 700px) {
+    .mainPhoto {
+        object-position: 100% -40px;
+    }
+}
+
+@media (min-width: 900px) {
+    .mainPhoto {
+        object-position: 100% -65px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .mainPhoto {
+        object-position: 100% -100px;
+    }
+}
+
+@media (min-width: 1150px) {
+    .mainPhoto {
+        object-position: 100% -140px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .mainPhoto {
+        object-position: 100% -170px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .mainPhoto {
+        object-position: 100% -180px;
+    }
+}
+
+@media (min-width: 1450px) {
+    .mainPhoto {
+        object-position: 100% -190px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .mainPhoto {
+        object-position: 100% -230px;
+    }
+}
+
+@media (min-width: 1700px) {
+    .mainPhoto {
+        object-position: 100% -250px;
+    }
+}
+
+@media (min-width: 2000px) {
+    .mainPhoto {
+        object-position: 100% -310px;
+    }
+}
