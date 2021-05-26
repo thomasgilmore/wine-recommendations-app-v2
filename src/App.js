@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Title from './Components/Title';
+import MainPhoto from './Components/MainPhoto';
 import { Button } from './Components/Button';
 import FoodDescription from './Components/FoodDescription';
 import WineDescription from './Components/WineDescription';
@@ -34,6 +35,7 @@ export default class App extends React.Component {
   return (
     <div>
       <Title />
+      <MainPhoto />
       <div className="buttonDiv">
         {this.state.wineSearch ? <div><Button buttonStyle="wineSearch" onClick={this.handleChangeWinePairing.bind(this)}>Wine Search</Button>
           <Button buttonStyle="foodSearch" onClick={this.handleChangeFoodPairing.bind(this)}>Food Search</Button></div>
