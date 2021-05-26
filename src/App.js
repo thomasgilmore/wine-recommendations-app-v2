@@ -39,7 +39,6 @@ export default class App extends React.Component {
       <MainPhoto />
       <Description />
       <WineSearch />
-      <Footer />
     </div>
   );
 }
