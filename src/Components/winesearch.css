@@ -51,10 +51,10 @@
     flex-direction: inherit;
 }
 
-.recommendationsImages > img {
+/* .recommendationsImages > img {
     display: block;
     margin: 10px auto;
-}
+} */
 
 @media (min-width: 200px) {
     .weatherCardContainer {
