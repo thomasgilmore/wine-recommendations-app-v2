@@ -1,9 +1,9 @@
 import React from 'react';
-// import './info.css';
+import './imagerow.css';
 
 class ImageRow extends React.Component {
     render() {
-        return <img src={this.props.image} alt=" " />
+        return <img src={this.props.image} className="recommendationPictures" alt=" " />
     }
 }
 
