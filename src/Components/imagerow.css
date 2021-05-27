@@ -1,0 +1,17 @@
+.recommendationPictures {
+    display: block;
+    margin: 10px auto;
+    width: 500px;
+}
+
+@media (min-width: 200px) {
+    .recommendationPictures {
+        width: 90%;
+    }
+}
+
+@media (min-width: 556px) {
+    .recommendationPictures {
+        width: 500px;
+    }
+}
