@@ -21,7 +21,7 @@ function WineSearch() {
   async function recommendationsData(e) {
     e.preventDefault();
     if (form.foodOrWine === "") {
-      alert("Add values");
+      alert("Add Wine or Food");
     } else {
       const data = await fetch(
         `https://api.spoonacular.com/food/wine/dishes?apiKey=${process.env.REACT_APP_API_KEY}&wine=${form.foodOrWine}`
