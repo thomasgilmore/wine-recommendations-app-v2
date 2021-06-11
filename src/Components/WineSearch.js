@@ -119,9 +119,9 @@ function WineSearch() {
 
         //   setRecommendations({ data: weatherCards })
         // })
-        // console.log(data2);
+        console.log(data2);
       })
-    //   console.log(data);
+      console.log(data);
     }
   }
 
