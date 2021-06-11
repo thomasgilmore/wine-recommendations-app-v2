@@ -88,6 +88,7 @@ function WineSearch() {
           //     console.log(imagesRows);
           //   }
           })
+          console.log(data2);
         })
 
         
@@ -119,7 +120,7 @@ function WineSearch() {
 
         //   setRecommendations({ data: weatherCards })
         // })
-        console.log(data2);
+        // console.log(data2);
       })
       console.log(data);
     }
