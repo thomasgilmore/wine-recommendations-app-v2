@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Title from './Components/Title';
-import MainPhoto from './Components/MainPhoto';
+// import MainPhoto from './Components/MainPhoto';
 // import { Button } from './Components/Button';
 import Description from './Components/Description';
 // import FoodDescription from './Components/FoodDescription';
