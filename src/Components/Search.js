@@ -21,22 +21,14 @@ export class Search extends Component {
           success: (searchResults) => {
             console.log("Fetched data successfully")
             console.log(searchResults)
-            // const results = searchResults
             const pairings = searchResults.pairings
             const text = searchResults.text
-            // console.log(results)
-    
+
             var foodRows = []
 
             const foodRow = <FoodRow key={pairings} food={pairings} info={text} />
             foodRows.push(foodRow)
-    
-            // results.forEach((food) => {
-            //   console.log(food)
-            //   const wineRow = <WineRow key={food} food={food} />
-            //   wineRows.push(wineRow)
-            // })
-    
+
             this.setState({rows: foodRows})
           },
           error: (xhr, status, err) => {
@@ -44,18 +36,17 @@ export class Search extends Component {
           }
         })
       }
-    
+
       searchChangeHandler(event) {
-        // console.log(event.target.value);
         const boundObject = this
         const searchTerm = event.target.value;
         boundObject.performSearch(searchTerm);
       }
-    
+
       render() {
       return (
         <div>
-    
+
           <input style={{
             backgroundColor: '#FFFFFF',
             borderColor: '#FFFFFF',
@@ -68,10 +59,10 @@ export class Search extends Component {
             paddingLeft: '1%',
             borderRadius: 10
           }} onChange={this.searchChangeHandler.bind(this)} placeholder="Enter search term" />
-    
+
           {this.state.rows}
-            
-    
+
+
         </div>
       );
       }
