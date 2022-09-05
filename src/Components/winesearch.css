@@ -87,6 +87,13 @@
     }
 }
 
+@Media (max-width: 500px) {
+    .recommendation form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 @media (min-width: 750px) {
     .recommendation form input {
         padding: 11px;
