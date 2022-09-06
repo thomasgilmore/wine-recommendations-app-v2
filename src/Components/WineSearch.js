@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { WineConext } from "../Context/Context";
+import React, { useState } from "react";
 import WineRow from './WineRow';
 import ImageRow from './ImageRow';
 import './winesearch.css';
@@ -9,7 +8,6 @@ import FooterWithData from './FooterWithData';
 require('dotenv').config()
 
 function WineSearch() {
-  const { setData, setData2 } = useContext(WineConext);
   const [recommendationsImages, setRecommendationsImages] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [form, setForm] = useState({
@@ -58,8 +56,7 @@ function WineSearch() {
               }
               setRecommendationsImages({ images: imagesRows })
             }
-            setData(data);
-            setData2(data2);
+            console.log(data, data2);
           })
         })
       })
